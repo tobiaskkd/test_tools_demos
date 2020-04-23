@@ -11,32 +11,32 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 class TestInputs():
-  def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+  def setup_method(self):
+    self.driver = webdriver.Chrome('./chromedriver')
     self.vars = {}
   
-  def teardown_method(self, method):
+  def teardown_method(self):
     self.driver.quit()
   
-  def test_inputs(self):
+  def test_inputs(self, input_key):
     self.driver.get("http://the-internet.herokuapp.com/")
     self.driver.set_window_size(1440, 824)
     self.driver.find_element(By.LINK_TEXT, "Inputs").click()
     self.driver.find_element(By.CSS_SELECTOR, "input").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("234567")
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(input_key)
     self.driver.find_element(By.CSS_SELECTOR, "html").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("234568")
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(input_key)
     self.driver.find_element(By.CSS_SELECTOR, "input").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("234569")
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(input_key)
     self.driver.find_element(By.CSS_SELECTOR, "input").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("234570")
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(input_key)
     self.driver.find_element(By.CSS_SELECTOR, "input").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("234571")
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(input_key)
     self.driver.find_element(By.CSS_SELECTOR, "input").click()
     self.driver.find_element(By.ID, "page-footer").click()
     self.driver.find_element(By.CSS_SELECTOR, "input").click()
     self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(Keys.ENTER)
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("234571")
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(input_key)
     self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(Keys.ENTER)
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("234571")
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys(input_key)
   
